@@ -43,7 +43,7 @@ public partial class ApplicationDbContext : DbContext
 
     public virtual DbSet<TNhanVien> TNhanViens { get; set; }
 
-    public virtual DbSet<TQuocGium> TQuocGia { get; set; }
+    public virtual DbSet<TQuocGia> TQuocGia { get; set; }
 
     public virtual DbSet<TUser> TUsers { get; set; }
 
@@ -447,7 +447,7 @@ public partial class ApplicationDbContext : DbContext
                 .HasConstraintName("FK_tNhanVien_tUser");
         });
 
-        modelBuilder.Entity<TQuocGium>(entity =>
+        modelBuilder.Entity<TQuocGia>(entity =>
         {
             entity.HasKey(e => e.MaNuoc);
 

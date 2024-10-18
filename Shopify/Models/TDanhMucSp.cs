@@ -51,7 +51,7 @@ public partial class TDanhMucSp
 
     public virtual TLoaiSp? MaLoaiNavigation { get; set; }
 
-    public virtual TQuocGium? MaNuocSxNavigation { get; set; }
+    public virtual TQuocGia? MaNuocSxNavigation { get; set; }
 
     public virtual ICollection<TAnhSp> TAnhSps { get; set; } = new List<TAnhSp>();
 

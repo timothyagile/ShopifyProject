@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic.FileIO;
 using Shopify.Models;
+using Shopify.ViewModels;
 using X.PagedList;
 
 namespace Shopify.Controllers;
@@ -34,6 +35,25 @@ public class HomeController : Controller
         PagedList<TDanhMucSp> listSp = new PagedList<TDanhMucSp>(lst,pageIndex,pageSize);
         ViewBag.maloai = maLoai;
         return View(listSp);
+    }
+
+    public IActionResult ChiTietSanPham(string maSp)
+    {
+        var sp = db.TDanhMucSps.SingleOrDefault(x=>x.MaSp == maSp);
+        var anhSp = db.TAnhSps.Where(x=>x.MaSp == maSp).ToList();
+        ViewBag.anhSanPham = anhSp;
+        return View(sp);
+    }
+
+    public IActionResult ProductDetail(string maSp)
+    {
+        var sp = db.TDanhMucSps.SingleOrDefault(x=>x.MaSp == maSp);
+        var anhSp = db.TAnhSps.Where(x=>x.MaSp == maSp).ToList();
+        var homeProductDetailViewModel = new HomeProductDetailViewModel{
+            danhMucSp = sp,
+            anhSps = anhSp
+        };
+        return View(homeProductDetailViewModel);
     }
     public IActionResult Privacy()
     {
