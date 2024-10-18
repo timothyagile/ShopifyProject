@@ -11,6 +11,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ILoaiSPRepository, LoaiSpRepository>();
+builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -29,6 +30,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

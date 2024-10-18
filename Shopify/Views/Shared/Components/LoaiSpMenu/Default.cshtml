@@ -8,9 +8,32 @@
         <ul>
             @foreach (var LoaiSpMenu in Model) 
             {
-            <li><a asp-controller="Home", asp-action="SanPhamTheoLoai" asp-route-maloai="@LoaiSpMenu.MaLoai">@LoaiSpMenu.Loai</a></li>
+                string GetUrl = "ocalhost:5052/api/productapi/" + LoaiSpMenu.MaLoai;
+                <li><a style="cursor: pointer; onclick="showProductByCategory('@getUrl')>@LoaiSpMenu.Loai</a></li>
+                @* <li><a asp-controller="Home", asp-action="SanPhamTheoLoai" asp-route-maloai="@LoaiSpMenu.MaLoai">@LoaiSpMenu.Loai</a></li> *@
             }
             
         </ul>
     </div>
 </div>
+
+<script>
+    function showProductByCategory(var Url) {
+        var str '';
+        $.ajax({
+            type: GET,
+            url: getUrl, 
+            dataType: 'json',
+            success: function(data) {
+                $.each(data, function(key, val){
+                    str='<p>' + val.tenSp + '</p>'
+                })
+                $('#displayProduct').html(str);
+            },
+
+            Error: function(xhr) {
+                alert(xhr.responseText)
+            }
+        });
+    }
+</script>

@@ -1,11 +1,9 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic.FileIO;
 using Shopify.Models;
 using Shopify.ViewModels;
 using X.PagedList;
-
 namespace Shopify.Controllers;
 
 public class HomeController : Controller
@@ -17,6 +15,7 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
+    //[Authentication]
 
     public IActionResult Index(int ?page)
     {
