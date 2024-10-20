@@ -1,4 +1,5 @@
 @model IEnumerable<TLoaiSp>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 <div class="col-lg-3">
     <div class="hero__categories">
         <div class="hero__categories__all">
@@ -8,8 +9,8 @@
         <ul>
             @foreach (var LoaiSpMenu in Model) 
             {
-                string GetUrl = "ocalhost:5052/api/productapi/" + LoaiSpMenu.MaLoai;
-                <li><a style="cursor: pointer; onclick="showProductByCategory('@getUrl')>@LoaiSpMenu.Loai</a></li>
+                var getUrl = "http://localhost:5052/api/productapi/" + LoaiSpMenu.MaLoai;
+                <li><a style="cursor: pointer;" onclick="showProductByCategory('@getUrl')">@LoaiSpMenu.Loai</a></li>
                 @* <li><a asp-controller="Home", asp-action="SanPhamTheoLoai" asp-route-maloai="@LoaiSpMenu.MaLoai">@LoaiSpMenu.Loai</a></li> *@
             }
             
@@ -18,20 +19,21 @@
 </div>
 
 <script>
-    function showProductByCategory(var Url) {
-        var str '';
+    function showProductByCategory(getUrl) {
+        console.log(getUrl);
+        var str = '';
         $.ajax({
-            type: GET,
+            type: 'GET',
             url: getUrl, 
             dataType: 'json',
             success: function(data) {
                 $.each(data, function(key, val){
-                    str='<p>' + val.tenSp + '</p>'
+                    str+='<p>' + val.tenSp + '</p>'
                 })
                 $('#displayProduct').html(str);
             },
 
-            Error: function(xhr) {
+            error: function(xhr) {
                 alert(xhr.responseText)
             }
         });
