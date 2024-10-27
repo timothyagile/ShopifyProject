@@ -13,6 +13,9 @@ docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=123Phucthinh@" -p 1433:1433 
 - Mở Azure studio và tạo connection với những thông tin bên dưới
 Server: localhost - SA - 123Phucthinh@
 
+# Tạo project ASP.NET MVC trên VSCode
+```dotnet new mvc -n TenDuAnCuaBan```
+
 # Connect database
 appsettings.json
 ``` json
