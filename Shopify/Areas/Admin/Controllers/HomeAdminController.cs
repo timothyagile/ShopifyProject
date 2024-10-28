@@ -165,7 +165,7 @@ namespace Shopify.Areas.Admin.Controllers
             {
                 db.Entry(sanPham).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("DanhMucSanPham");
+                return RedirectToAction("DanhSachNguoiDung");
             }
             return View(sanPham);   
         }

@@ -60,7 +60,7 @@
                 @Html.DisplayFor(modelItem => item.ChucVu)
             </td>
             <td>
-                <a asp-action="SuaNguoiDung" asp-route-MaNhanVien="@item.MaNhanVien">Edit</a> |
+                <a asp-action="SuaNguoiDung" asp-route-maNhanVien="@item.MaNhanVien">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.MaNhanVien">Details</a> |
                 <form asp-action="XoaNguoiDung" asp-route-id="@item.MaNhanVien" method="post" onsubmit="return confirm('Bạn có chắc chắn muốn xóa người dùng này?');">
                     <button type="submit" class="btn btn-danger">Xóa</button>
