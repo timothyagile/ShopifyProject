@@ -9,16 +9,16 @@
         <ul>
             @foreach (var LoaiSpMenu in Model) 
             {
-                var getUrl = "http://localhost:5052/api/productapi/" + LoaiSpMenu.MaLoai;
-                <li><a style="cursor: pointer;" onclick="showProductByCategory('@getUrl')">@LoaiSpMenu.Loai</a></li>
-                @* <li><a asp-controller="Home", asp-action="SanPhamTheoLoai" asp-route-maloai="@LoaiSpMenu.MaLoai">@LoaiSpMenu.Loai</a></li> *@
+                @* var getUrl = "http://localhost:5052/api/productapi/" + LoaiSpMenu.MaLoai; *@
+                @* <li><a style="cursor: pointer;" onclick="showProductByCategory('@getUrl')">@LoaiSpMenu.Loai</a></li> *@
+                <li><a asp-controller="Home", asp-action="SanPhamTheoLoai" asp-route-maloai="@LoaiSpMenu.MaLoai">@LoaiSpMenu.Loai</a></li>
             }
             
         </ul>
     </div>
 </div>
 
-<script>
+@* <script>
     function showProductByCategory(getUrl) {
         console.log(getUrl);
         var str = '';
@@ -38,4 +38,4 @@
             }
         });
     }
-</script>
+</script> *@
